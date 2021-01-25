@@ -43,19 +43,25 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+  closure is a function bundled with its lexical enviornment. meaning what values it has access to. a function that is returned from another function would be a closure and all the variables it has access to would also be part of that closure
+
 2. Study the following code, then answer the questions below.
 
 ```js
 function personalDice(name){
-  return function(){
+// personalDice returns a function which is a closure that has access to its parent variables
+return function(){
       // generate random number between 1 and 6
     const newRoll = Math.floor(Math.random() * 6);
     console.log(`${name} rolled a ${newRoll}`)
   }
 }
 
+// dansRoll is a closure and has access to personaDices local vaiables in this case name
 const dansRoll = personalDice("Dan");
 
+// zoesRoll is also a closure and has access to its own lexical scope which is different than dansRoll
 const zoesRoll = personalDice("Zoe");
 
 
@@ -64,8 +70,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  closure is used in personalDices return statement. I can tell because it is saved to the variable dansRoll and even after the function has finished executing, when dansRoll is called on line 68 it still has access to personalDices name variable
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+  name is always the same and the newRoll could change
+
 c. What is the lexical scope of `newRoll`? 
+
+  can only be accesed by an instance of the closure returned from personalDice in this case dansRoll and zoesRoll
 
 
 ### Task 3 - Stretch Goals
