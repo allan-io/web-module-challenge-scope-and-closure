@@ -96,6 +96,8 @@ function finalScore(innings, callback){
   return score
 }
 
+console.log(finalScore())
+
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
